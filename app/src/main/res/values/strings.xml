@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">SuperAppTwo</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_activity_product">ActivityProduct</string>
+    <string name="title_activity_activity_category">ActivityCategory</string>
+    <string name="title_activity_activity_personal">ActivityPersonal</string>
+    <string name="price">$18</string>
+    <string name="text_super">Wolmart Polanco</string>
+</resources>

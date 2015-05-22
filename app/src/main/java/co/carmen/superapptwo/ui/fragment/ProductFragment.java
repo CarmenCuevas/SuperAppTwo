@@ -52,10 +52,6 @@ public class ProductFragment extends Fragment {
         return rootView;
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-    }
 
 
     private void inListProducts() {

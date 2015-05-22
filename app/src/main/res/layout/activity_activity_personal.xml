@@ -7,6 +7,7 @@
 
     <fragment
         android:id="@+id/frag_personal"
+        android:name="co.carmen.superapptwo.ui.fragment.PersonalFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 

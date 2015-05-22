@@ -4,7 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,20 +12,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-import co.carmen.superapptwo.ui.fragment.ProductFragment;
+import butterknife.InjectView;
 
 
-public class ActivityProduct extends AppCompatActivity {
+public class ActivityProduct extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_product);
-        if (savedInstanceState == null) {
+        /*if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new ProductFragment())
+                    .add(R.id.container, new PlaceholderFragment())
                     .commit();
-        }
+        }*/
     }
 
 
@@ -54,10 +54,13 @@ public class ActivityProduct extends AppCompatActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    /*public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
         }
+
+        @InjectView(R.id.list_products)
+        RecyclerView listProducts;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,5 +68,5 @@ public class ActivityProduct extends AppCompatActivity {
             View rootView = inflater.inflate(R.layout.fragment_activity_product, container, false);
             return rootView;
         }
-    }
+    }*/
 }

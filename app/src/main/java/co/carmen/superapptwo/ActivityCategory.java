@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,17 +13,12 @@ import android.view.ViewGroup;
 import android.os.Build;
 
 
-public class ActivityCategory extends ActionBarActivity {
+public class ActivityCategory extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_category);
-       /* if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }*/
     }
 
 
@@ -51,5 +47,4 @@ public class ActivityCategory extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-
 }

@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="90dp"
     android:layout_marginBottom="0.5dp"
-    android:gravity="center_vertical|center">
+    android:gravity="center_vertical|center"
+    android:id="@+id/itemPro">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="horizontal" android:layout_width="match_parent"
@@ -38,7 +39,7 @@
                 android:textStyle="bold|italic" />
 
             <TextView
-                android:id="@+id/txt_character_super"
+                android:id="@+id/txt_product_super"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -53,7 +54,7 @@
 
         </LinearLayout>
      <TextView
-            android:id="@+id/txt_character_price"
+            android:id="@+id/txt_product_price"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-condensed"

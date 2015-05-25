@@ -67,7 +67,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             ((ProductViewHolder) viewHolder).setImg(currentProduct.getUrlImage());
             ((ProductViewHolder) viewHolder).setName(currentProduct.getName());
             ((ProductViewHolder) viewHolder).setTxtPrice(currentProduct.getPrice());
-            ((ProductViewHolder) viewHolder).setTxtSuper(currentProduct.getDescription());
+            ((ProductViewHolder) viewHolder).setTxtSuper(currentProduct.getSuperon());
 
 
             Bundle bundle = new Bundle();
@@ -75,13 +75,10 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             bundle.putString(Constants.CATEGORY_URL_IMAGE, String.valueOf(currentProduct.getUrlImage()));
             bundle.putString(Constants.ID_KEY, String.valueOf(currentProduct.getId()));
             bundle.putString(Constants.NAME_KEY, currentProduct.getName());
-            bundle.putString(Constants.PRICE_KEY, currentProduct.getName());
-            bundle.putString(Constants.CANT_KEY, currentProduct.getName());
-            if (currentProduct.getDescription().length() > 0) {
-                bundle.putString(Constants.DESCRIPTION_KEY, currentProduct.getDescription());
-            } else {
-                bundle.putString(Constants.DESCRIPTION_KEY,noneContent );
-            }
+            bundle.putString(Constants.PRICE_KEY, currentProduct.getPrice());
+            bundle.putString(Constants.CANT_KEY, currentProduct.getCanti());
+            bundle.putString(Constants.SUPER_KEY, currentProduct.getSuperon());
+
 
 
 
@@ -97,7 +94,7 @@ public class ProductAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     }
 
 
-    public int getCharacterItemsCount() {
+    public int getProductItemsCount() {
         if (isProgressViewVisible())
             return products.size() - 1;
 

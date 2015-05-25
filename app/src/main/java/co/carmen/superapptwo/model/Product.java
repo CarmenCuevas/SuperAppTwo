@@ -20,8 +20,8 @@ public class Product {
     @SerializedName(Constants.NAME_KEY)
     String name;
 
-    @SerializedName(Constants.DESCRIPTION_KEY)
-    String description;
+    @SerializedName(Constants.SUPER_KEY)
+    String superon;
 
     @SerializedName(Constants.PRICE_KEY)
     String price;
@@ -55,12 +55,12 @@ public class Product {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSuperon() {
+        return superon;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSuperon(String description) {
+        this.superon = description;
     }
 
     public String getPrice() {

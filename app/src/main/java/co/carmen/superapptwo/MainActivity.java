@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity{
         }
 
 
-
     }
 
 
@@ -65,7 +64,6 @@ public class MainActivity extends AppCompatActivity{
 
         public PlaceholderFragment() {
 
-
         }
 
         @Override
@@ -73,15 +71,8 @@ public class MainActivity extends AppCompatActivity{
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-
-
-
-
             return rootView;
         }
-
-
-
 
     }
 }

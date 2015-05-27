@@ -5,7 +5,7 @@ package co.carmen.superapptwo.model;
  */
 public class Category {
     private String categoryName;
-    private int categoryId;
+    private String categoryId;
     private String categoryImage;
 
     public String getCategoryName() {
@@ -16,11 +16,11 @@ public class Category {
         this.categoryName = categoryName;
     }
 
-    public int getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(int categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 

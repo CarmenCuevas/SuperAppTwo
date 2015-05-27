@@ -1,6 +1,7 @@
 package co.carmen.superapptwo.ui.adapter;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         this.categories = categories;
     }
 
-
     @Override
    public CategoryViewHolder onCreateViewHolder (ViewGroup viewGroup, int i) {
     View v = LayoutInflater.from(viewGroup.getContext())
@@ -34,15 +34,17 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     CategoryViewHolder vh = new CategoryViewHolder(v);
        return vh;
-
    }
 
-
     @Override
-    public void onBindViewHolder (CategoryViewHolder categoryViewHolder, int i){
+    public void onBindViewHolder (CategoryViewHolder categoryViewHolder,final int i){
        categoryViewHolder.category_txt.setText(String.valueOf(categories.get(i).getCategoryName()));
-
-
+        categoryViewHolder.category_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.wtf("Click::", categories.get(i).getCategoryId());
+            }
+        });
     }
 
     @Override
@@ -50,30 +52,16 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         return categories.size();
     }
 
-
-
-
-
     public static class CategoryViewHolder extends RecyclerView.ViewHolder{
         ImageView category_photo;
         TextView category_txt;
-
-
-
-
-
-
-
        public  CategoryViewHolder(View itemView) {
            super(itemView);
            this.category_photo = (ImageView) itemView.findViewById(R.id.imagecategoria);
            this.category_txt = (TextView) itemView.findViewById(R.id.categoriatext);
        }
 
-
     }
-
-
 
 }
 

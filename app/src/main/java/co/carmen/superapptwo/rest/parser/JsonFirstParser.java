@@ -1,11 +1,14 @@
 package co.carmen.superapptwo.rest.parser;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
 import co.carmen.superapptwo.model.Category;
+import co.carmen.superapptwo.model.Local;
+import co.carmen.superapptwo.model.Precio;
 import co.carmen.superapptwo.model.Product;
 
 /**
@@ -33,25 +36,35 @@ public class JsonFirstParser {
 
     }
 
-    public static ArrayList<Product> parserProductsJsonObject(JSONObject jsonObject){
+    public static ArrayList<Product> parserCreateProduct(JSONArray jsonArray){
         ArrayList<Product> products = new ArrayList<>();
-
         try {
-            for(int i = 0; i < jsonObject.getJSONArray("products").length(); i++){
+
+            for(int index = 0; index < jsonArray.length(); index++){
                 Product product = new Product();
-
-                product.setProductid(jsonObject.getJSONArray("products").getJSONObject(i).getString("id"));
-                product.setProductPrice(jsonObject.getJSONArray("products").getJSONObject(i).getString("price"));
-                product.setProductName(jsonObject.getJSONArray("products").getJSONObject(i).getString("descripcion"));
-                product.setProductName(jsonObject.getJSONArray("precios").getJSONObject(i).getString("precio"));
-
-
-
+                ArrayList<Precio> precios = new ArrayList<>();
+                product.setProductId(jsonArray.getJSONObject(index).getString("id"));
+                product.setProductName(jsonArray.getJSONObject(index).getString("name"));
+                for(int indexb = 0; indexb < jsonArray.getJSONObject(index).getJSONArray("precios").length(); indexb++){
+                    Precio precio = new Precio();
+                    precio.setPrecioProduct(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getLong("precio"));
+                    Local local = new Local();
+                    local.setLocalName(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getJSONObject("local").getString("sucursal"));
+                    local.setLocalDirec(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getJSONObject("local").getString("direccion"));
+                    local.setLocalTel(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getJSONObject("local").getString("telefono"));
+                    local.setLocalId(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getJSONObject("local").getString("id"));
+                    local.setLocalLat(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getJSONObject("local").getLong("latitud"));
+                    local.setLocalLong(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getJSONObject("local").getLong("longitud"));
+                    precio.setPrecioLocal(local);
+                    precios.add(precio);
+                }
                 products.add(product);
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }return products;
-
+        }
+        return products;
     }
+
+
 }

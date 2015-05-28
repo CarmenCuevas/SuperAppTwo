@@ -1,34 +1,18 @@
 package co.carmen.superapptwo.ui.fragment;
 
-import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
-
+import com.android.volley.toolbox.JsonArrayRequest;
+import org.json.JSONArray;
 import co.carmen.superapptwo.R;
-import co.carmen.superapptwo.model.Category;
-import co.carmen.superapptwo.model.Product;
 import co.carmen.superapptwo.rest.app.ParseAplication;
-import co.carmen.superapptwo.rest.parser.JsonFirstParser;
-import co.carmen.superapptwo.ui.adapter.CategoryAdapter;
 import co.carmen.superapptwo.ui.adapter.ProductAdapter;
 
 public class ProductFragment extends Fragment {
@@ -62,34 +46,25 @@ public class ProductFragment extends Fragment {
 
     private void initView (View view) {
         recycler_product = (RecyclerView) view.findViewById(R.id.list_products);
-
-
     }
 
     private void jsonProductRequest() {
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject jsonObject) {
-                        ArrayList<Product> products = null;
-                        if (jsonObject != null) {
-                            Log.wtf("STRING-REQUEST::", String.valueOf(jsonObject));
-                            products = JsonFirstParser.parserProductsJsonObject(jsonObject);
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray jsonArray) {
+                Log.wtf("STRING-REQUEST::", String.valueOf(jsonArray));
 
-                            adapter = new ProductAdapter(products);
-
-                            recycler_product.setAdapter(adapter);
-                        }
-                    }
-                }, new Response.ErrorListener() {
+            }
+        }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 Log.wtf("STRING-REQUEST-ERROR::", String.valueOf(volleyError));
+
             }
         });
 
-        // Add the request to the RequestQueue.
-        ParseAplication.getInstance().addToRequestQueue(jsonObjectRequest, "getProducts");
+        ParseAplication.getInstance().addToRequestQueue(jsonArrayRequest, "getpProducts");
+
     }
 
 

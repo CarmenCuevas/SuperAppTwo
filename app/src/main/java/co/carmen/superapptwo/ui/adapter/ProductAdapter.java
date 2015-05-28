@@ -33,9 +33,7 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
 
     @Override
     public void onBindViewHolder (ProductViewHolder productViewHolder,final int i){
-        productViewHolder.product_txt.setText(String.valueOf(products.get(i).getProductName()));
-
-
+        productViewHolder.product_name.setText(String.valueOf(products.get(i).getProductName()));
         productViewHolder.product_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,14 +49,21 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder{
         ImageView product_photo;
-        TextView product_txt;
+        TextView product_name;
+
+
         public  ProductViewHolder(View itemView) {
             super(itemView);
             this.product_photo = (ImageView) itemView.findViewById(R.id.img_product);
-            this.product_txt = (TextView) itemView.findViewById(R.id.txt_product_name);
+            this.product_name = (TextView) itemView.findViewById(R.id.txt_product_name);
+
+
         }
 
     }
+
+
+
 
 
 }

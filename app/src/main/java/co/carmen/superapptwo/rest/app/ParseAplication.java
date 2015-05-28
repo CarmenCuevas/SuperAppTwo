@@ -34,10 +34,6 @@ public class ParseAplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Parse.initialize(this, "vDov0ki7uVslhiMM76FlEwDV1N3XqCXXcYsndLio",
-                "eCjUuXj4llPlO4IEPpgy0Lk9yiaC9kL8Sf0ltl3O");
-        ParseInstallation.getCurrentInstallation().saveInBackground();
-
 
         // initialize the singleton
         sInstance = this;

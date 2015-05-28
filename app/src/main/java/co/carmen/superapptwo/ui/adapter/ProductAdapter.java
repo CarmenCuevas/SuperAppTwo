@@ -1,34 +1,64 @@
 package co.carmen.superapptwo.ui.adapter;
 
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
+import java.util.ArrayList;
 
-import java.util.List;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 import co.carmen.superapptwo.R;
 import co.carmen.superapptwo.model.Product;
-import co.carmen.superapptwo.rest.Constants;
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
-import static java.util.Collections.EMPTY_LIST;
+public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
 
-public class ProductAdapter {
+    private ArrayList<Product> products;
+
+    public ProductAdapter(ArrayList<Product> products) {
+        this.products = products;
+    }
+
+    @Override
+    public ProductViewHolder onCreateViewHolder (ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.item_product, viewGroup, false);
+
+        ProductViewHolder vh = new ProductViewHolder(v);
+        return vh;
+    }
+
+    @Override
+    public void onBindViewHolder (ProductViewHolder productViewHolder,final int i){
+        productViewHolder.product_txt.setText(String.valueOf(products.get(i).getProductName()));
 
 
+        productViewHolder.product_photo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.wtf("Click::", products.get(i).getProductid());
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return products.size();
+    }
+
+    public static class ProductViewHolder extends RecyclerView.ViewHolder{
+        ImageView product_photo;
+        TextView product_txt;
+        public  ProductViewHolder(View itemView) {
+            super(itemView);
+            this.product_photo = (ImageView) itemView.findViewById(R.id.img_product);
+            this.product_txt = (TextView) itemView.findViewById(R.id.txt_product_name);
+        }
+
+    }
 
 
 }

@@ -6,7 +6,7 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
 
-@Table(name = "Producto")
+@Table(name = "BaseClient")
 
 public class BaseClient extends Model {
 
@@ -17,10 +17,11 @@ public class BaseClient extends Model {
     @Column(name = "direccion")
     public String direccion;
     @Column(name = "precio")
-    public Long precio;
+    public Float precio;
 
 
     public String getName() {
+
         return name;
     }
 
@@ -44,11 +45,11 @@ public class BaseClient extends Model {
         this.direccion = direccion;
     }
 
-    public Long getPrecio() {
+    public Float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(Long precio) {
+    public void setPrecio(Float precio) {
         this.precio = precio;
     }
 }

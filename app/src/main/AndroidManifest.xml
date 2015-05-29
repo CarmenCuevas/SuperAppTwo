@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="co.carmen.superapptwo" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -11,7 +11,7 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <application
-        android:name="co.carmen.superapptwo.rest.app.ParseAplication"
+        android:name=".rest.app.ParseAplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -25,8 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
             android:name=".ActivityProduct"
             android:label="@string/title_activity_activity_product" >
@@ -39,23 +37,23 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
         <activity
             android:name=".ActivityPersonal"
             android:label="@string/title_activity_activity_personal" >
         </activity>
 
+        <meta-data
+            android:name="AA_DB_NAME"
+            android:value="carrito.db" />
+        <meta-data
+            android:name="AA_DB_VERSION"
+            android:value="1" />
 
-
-        <meta-data android:name="AA_DB_NAME" android:value="carrito.db" />
-        <meta-data android:name="AA_DB_VERSION" android:value="1" />
-
+        <activity
+            android:name=".Carrito"
+            android:label="@string/title_activity_carrito" >
+        </activity>
     </application>
-
-
-
-
-
 
 </manifest>

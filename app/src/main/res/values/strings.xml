@@ -7,4 +7,5 @@
     <string name="title_activity_activity_personal">ActivityPersonal</string>
     <string name="price">$18</string>
     <string name="text_super">Wolmart Polanco</string>
+    <string name="title_activity_carrito">Carrito</string>
 </resources>

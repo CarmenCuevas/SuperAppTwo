@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <ImageView
+        android:id="@+id/carritophoto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginRight="6dp"
+
+               />
+
+    <TextView
+        android:id="@+id/carritonombre"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="El texto"
+        android:textSize="16sp"
+        android:maxLines="2"
+        android:layout_toRightOf="@+id/carritophoto"
+
+        />
+
+    <TextView
+        android:id="@+id/carritosuper"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="El texto2"
+        android:textSize="16sp"
+        android:layout_toRightOf="@+id/carritophoto"
+        android:layout_below="@+id/carritonombre"
+        android:maxLines="2"
+        />
+
+
+    <TextView
+        android:id="@+id/carritodireccion"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="El texto"
+        android:textSize="16sp"
+        android:layout_toRightOf="@+id/carritophoto"
+        android:layout_below="@+id/carritosuper"
+        android:maxLines="3"
+        />
+
+    <TextView
+        android:id="@+id/carritoprecio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$"
+        android:layout_centerVertical="true"
+        android:textSize="20sp"
+        android:layout_toRightOf="@+id/carritodireccion"
+
+
+
+        />
+
+
+</RelativeLayout>

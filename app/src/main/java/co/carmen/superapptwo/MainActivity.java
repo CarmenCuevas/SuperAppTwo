@@ -30,7 +30,16 @@ public class MainActivity extends AppCompatActivity{
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+    }
 
+    public void  ActivityProduct2(View view){
+        Button button = (Button) findViewById(R.id.button1);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ActivityProduct.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -70,9 +79,10 @@ public class MainActivity extends AppCompatActivity{
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
             return rootView;
         }
+
+
 
     }
 }

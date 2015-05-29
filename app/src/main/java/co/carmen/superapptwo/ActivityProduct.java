@@ -8,10 +8,17 @@ import android.view.MenuItem;
 
 public class ActivityProduct extends ActionBarActivity {
 
+    private String categoryId = "";
+    private String producsURL = "http://95ef1563.ngrok.io/categories/%s/?format=json";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_product);
+
+        categoryId = getIntent().getStringExtra("categoryId");
+
+        producsURL = String.format(producsURL, categoryId);
         /*if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())

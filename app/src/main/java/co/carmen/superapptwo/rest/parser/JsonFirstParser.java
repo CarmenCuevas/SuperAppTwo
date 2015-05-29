@@ -1,5 +1,7 @@
 package co.carmen.superapptwo.rest.parser;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -16,24 +18,25 @@ import co.carmen.superapptwo.model.Product;
  */
 public class JsonFirstParser {
 
-    public static ArrayList<Category> parserCategoriesJsonObject(JSONObject jsonObject){
+    public static ArrayList<Category> parserCategoriesJsonObject(JSONArray jsonArray){
         ArrayList<Category> categories = new ArrayList<>();
+        Log.e("JsonArray",String.valueOf(jsonArray));
 
         try {
-            for(int i = 0; i < jsonObject.getJSONArray("categories").length(); i++){
-                Category category = new Category();
-
-                category.setCategoryId(jsonObject.getJSONArray("categories").getJSONObject(i).getString("id"));
-                category.setCategoryImage(jsonObject.getJSONArray("categories").getJSONObject(i).getString("image"));
-                category.setCategoryName(jsonObject.getJSONArray("categories").getJSONObject(i).getString("categoria"));
-
+            for(int i=0; i < jsonArray.length();i++){
+                Category category= new Category();
+                JSONObject categ = jsonArray.getJSONObject(i);
+                category.setCategoryId(categ.getString("id"));
+                category.setCategoryName(categ.getString("categoria"));
+                category.setCategoryImage(categ.getString("imagen"));
 
                 categories.add(category);
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        }return categories;
+        }
 
+        return categories;
     }
 
     public static ArrayList<Product> parserCreateProduct(JSONArray jsonArray){
@@ -65,6 +68,23 @@ public class JsonFirstParser {
         }
         return products;
     }
+
+
+        /*try {
+            for(int i = 0; i < jsonArray.getJSONArray("categories").length(); i++){
+                Category category = new Category();
+
+                category.setCategoryId(jsonObject.getJSONArray("categories").getJSONObject(i).getString("id"));
+                category.setCategoryImage(jsonObject.getJSONArray("categories").getJSONObject(i).getString("image"));
+                category.setCategoryName(jsonObject.getJSONArray("categories").getJSONObject(i).getString("categoria"));
+
+
+                categories.add(category);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }*/
+
 
 
 }

@@ -45,6 +45,17 @@
             android:name=".ActivityPersonal"
             android:label="@string/title_activity_activity_personal" >
         </activity>
+
+
+
+        <meta-data android:name="AA_DB_NAME" android:value="carrito.db" />
+        <meta-data android:name="AA_DB_VERSION" android:value="1" />
+
     </application>
+
+
+
+
+
 
 </manifest>

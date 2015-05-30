@@ -1,9 +1,6 @@
 package co.carmen.superapptwo;
 
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,10 +8,10 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.os.Build;
 import android.widget.Button;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
 
 
 public class MainActivity extends AppCompatActivity{
@@ -30,6 +27,8 @@ public class MainActivity extends AppCompatActivity{
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        Fresco.initialize(this);
     }
 
     public void  ActivityProduct2(View view){

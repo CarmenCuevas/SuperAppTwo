@@ -31,17 +31,22 @@ public class ProductFragment extends Fragment {
     private ProductAdapter adapter;
     private RecyclerView.LayoutManager managerPro;
     private String url ;
+    private String product_photo ;
 
     public ProductFragment(){
 
     }
 
-    public static ProductFragment getInstance(String url){
+    public static ProductFragment getInstance(String url,String product_photo){
         ProductFragment pruductF = new ProductFragment();
         Bundle bun = new Bundle();
-        bun.putString("url",url);
+        bun.putString("producsURL",url);
+        bun.putString("productImage",product_photo);
         pruductF.setArguments(bun);
-        return new ProductFragment();
+
+
+
+        return pruductF;
     }
 
     @Override
@@ -52,27 +57,29 @@ public class ProductFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_activity_product, container, false);
-        url = getArguments().getString(url);
+        url = getArguments().getString("producsURL");
+        product_photo = getArguments().getString("productImage");
+        Log.wtf("String url:",url);
         initView(v);
         jsonProductRequest();
         return v;
     }
 
     private void initView (View view) {
-        recycler_product = (RecyclerView) view.findViewById(R.id.list_products);
+        recycler_product = (RecyclerView) view.findViewById(R.id.recycler_product1);
         recycler_product.setHasFixedSize(true);
         managerPro = new LinearLayoutManager(getActivity());
         recycler_product.setLayoutManager(managerPro);
     }
 
     private void jsonProductRequest() {
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url, new Response.Listener<JSONArray>() {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(url,new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray jsonArray) {
                 Log.wtf("STRING-REQUEST::", String.valueOf(jsonArray));
                 if (jsonArray != null){
                     ArrayList<Product> products = JsonFirstParser.parserCreateProduct(jsonArray);
-                    adapter = new ProductAdapter(products);
+                    adapter = new ProductAdapter(products,product_photo);
                     recycler_product.setAdapter(adapter);
                 }
 

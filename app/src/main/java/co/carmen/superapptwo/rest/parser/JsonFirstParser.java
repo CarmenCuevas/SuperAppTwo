@@ -47,7 +47,7 @@ public class JsonFirstParser {
                 Product product = new Product();
                 ArrayList<Precio> precios = new ArrayList<>();
                 product.setProductId(jsonArray.getJSONObject(index).getString("id"));
-                product.setProductName(jsonArray.getJSONObject(index).getString("name"));
+                product.setProductName(jsonArray.getJSONObject(index).getString("descripcion"));
                 for(int indexb = 0; indexb < jsonArray.getJSONObject(index).getJSONArray("precios").length(); indexb++){
                     Precio precio = new Precio();
                     precio.setPrecioProduct(jsonArray.getJSONObject(index).getJSONArray("precios").getJSONObject(indexb).getLong("precio"));

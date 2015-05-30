@@ -11,10 +11,14 @@
         android:orientation="horizontal" android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/img_product"
             android:layout_width="56dp"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            fresco:overlayImage="@color/overlay_image"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@drawable/superone"
+            fresco:placeholderImageScaleType="focusCrop"/>
 
 
 

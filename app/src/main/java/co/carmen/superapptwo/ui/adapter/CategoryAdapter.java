@@ -1,6 +1,7 @@
 package co.carmen.superapptwo.ui.adapter;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.util.Log;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 
@@ -26,6 +29,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private ArrayList<Category> categories;
     private Context context;
+    private String urlIm ="http://a73d00d6.ngrok.io/%s";
 
     public CategoryAdapter(ArrayList<Category> categories, Context context){
         this.categories = categories;
@@ -44,12 +48,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder (CategoryViewHolder categoryViewHolder,final int i){
        categoryViewHolder.category_txt.setText(String.valueOf(categories.get(i).getCategoryName()));
+        categoryViewHolder.category_photo.setImageURI(Uri.parse(String.format(urlIm,categories.get(i).getCategoryImage())));
         categoryViewHolder.category_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.wtf("Click::", categories.get(i).getCategoryId());
                 Intent intent = new Intent(context, ActivityProduct.class);
                 intent.putExtra("categoryId", categories.get(i).getCategoryId());
+                intent.putExtra("productImage",String.format(urlIm,categories.get(i).getCategoryImage()));
                 context.startActivity(intent);
             }
         });
@@ -61,11 +67,11 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     }
 
     public static class CategoryViewHolder extends RecyclerView.ViewHolder{
-        ImageView category_photo;
+        SimpleDraweeView category_photo;
         TextView category_txt;
        public  CategoryViewHolder(View itemView) {
            super(itemView);
-           this.category_photo = (ImageView) itemView.findViewById(R.id.imagecategoria);
+           this.category_photo = (SimpleDraweeView) itemView.findViewById(R.id.img_category);
            this.category_txt = (TextView) itemView.findViewById(R.id.categoriatext);
        }
 

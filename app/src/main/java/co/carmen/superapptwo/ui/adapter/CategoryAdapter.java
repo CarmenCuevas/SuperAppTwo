@@ -29,7 +29,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
 
     private ArrayList<Category> categories;
     private Context context;
-    private String urlIm ="http://a73d00d6.ngrok.io/%s";
+    private String urlIm ="http://profecoapi.tk/%s";
 
     public CategoryAdapter(ArrayList<Category> categories, Context context){
         this.categories = categories;

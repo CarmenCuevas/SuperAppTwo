@@ -2,16 +2,31 @@ package co.carmen.superapptwo;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import co.carmen.superapptwo.ui.fragment.ProductFragment;
+
 
 public class ActivityProduct extends ActionBarActivity {
+
+    private String categoryId = "";
+    private String producsURL = "http://profecoapi.tk/categories/%s/?format=json";
+    private String productImage="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_product);
+        categoryId = getIntent().getStringExtra("categoryId");
+        productImage = getIntent().getStringExtra("productImage");
+
+        producsURL = String.format(producsURL, categoryId);
+        getFragmentManager().beginTransaction().replace(R.id.conteiner, ProductFragment.getInstance(producsURL,productImage)).commit();
+        Log.wtf("String url:", producsURL);
+        Log.wtf("String url:", productImage);
+
         /*if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())

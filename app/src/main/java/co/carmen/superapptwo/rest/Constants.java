@@ -12,7 +12,7 @@ public class Constants {
     public static final String SUPER_KEY = "super";
     public static final String PRICE_KEY = "precio";
     public static final String CANT_KEY = "cantidad";
-    public static final String MAIN_URL = "http://5a288277.ngrok.io/categories/";
+    public static final String MAIN_URL = "http://profecoapi.tk/categories/";
 
     public static final String DATA_KEY = "data";
     public static final String OFFSET_KEY = "offset";

@@ -13,7 +13,7 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/img_product"
-            android:layout_width="52dp"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
             fresco:overlayImage="@color/overlay_image"
             fresco:actualImageScaleType="focusCrop"

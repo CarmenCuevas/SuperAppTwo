@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 
 public class ActivityCategory extends AppCompatActivity {
 
@@ -19,6 +21,8 @@ public class ActivityCategory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_category);
+
+        Fresco.initialize(this);
     }
 
 

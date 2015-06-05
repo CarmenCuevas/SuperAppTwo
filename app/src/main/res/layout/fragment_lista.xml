@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="0.5dp"
+    android:background="#ff5722"
+    android:orientation="vertical">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="horizontal" android:layout_width="match_parent"
+        android:layout_height="90dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/img_product"
+            android:layout_width="56dp"
+            android:layout_height="match_parent"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@drawable/bebidas"
+           />
+
+
+
+        <LinearLayout
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_product_name"
+                android:layout_width="250dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="@dimen/space_products"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:maxLines="2"
+                android:textStyle="bold|italic"
+                android:layout_gravity="center_vertical"
+                android:text="Bonafont 1 litro Agua sin Gas" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="@dimen/space_products"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:maxLines="2"
+                android:textStyle="bold|italic"
+                android:layout_gravity="center_vertical"
+                android:text="AURRERA BODEGA SUCURSAL MARIANO ESCOBEDO" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="250dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="@dimen/space_products"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:maxLines="2"
+                android:textStyle="bold|italic"
+                android:layout_gravity="center_vertical"
+                android:text="LAGO COMO NO. 160 ESQ. MARIANO ESCOBEDO" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:id="@+id/buttonA"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:layout_gravity="center_vertical"
+            android:text="9.9999"
+            android:textSize="25sp"
+            android:textColor="@color/white"
+             />
+
+    </LinearLayout>
+
+</LinearLayout>

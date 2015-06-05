@@ -46,6 +46,11 @@
             android:name=".ActivityPersonal"
             android:label="@string/title_activity_activity_personal" >
         </activity>
+
+        <activity
+            android:name=".ActivityLista"
+            android:label="Tu Lista" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,11 +1,17 @@
 package co.carmen.superapptwo;
 
+import android.app.DialogFragment;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
+import co.carmen.superapptwo.ui.fragment.PersonalFragment;
 import co.carmen.superapptwo.ui.fragment.ProductFragment;
 
 
@@ -26,6 +32,8 @@ public class ActivityProduct extends ActionBarActivity {
         getFragmentManager().beginTransaction().replace(R.id.conteiner, ProductFragment.getInstance(producsURL,productImage)).commit();
         Log.wtf("String url:", producsURL);
         Log.wtf("String url:", productImage);
+
+        Fresco.initialize(this);
 
         /*if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
@@ -56,6 +64,24 @@ public class ActivityProduct extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+   /* void showDialog() {
+        mStackLevel++;
+
+        // DialogFragment.show() will take care of adding the fragment
+        // in a transaction.  We also want to remove any currently showing
+        // dialog, so make our own transaction and take care of that here.
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Fragment prev = getFragmentManager().findFragmentByTag("dialog");
+        if (prev != null) {
+            ft.remove(prev);
+        }
+        ft.addToBackStack(null);
+
+        // Create and show the dialog.
+        DialogFragment newFragment = PersonalFragment.newInstance(mStackLevel);
+        newFragment.show(ft, "dialog");
+    }*/
 
     /**
      * A placeholder fragment containing a simple view.

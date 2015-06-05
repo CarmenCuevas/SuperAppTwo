@@ -1,27 +1,20 @@
 package co.carmen.superapptwo;
 
-import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-import android.widget.Button;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 
-import co.carmen.superapptwo.ui.fragment.PersonalFragment;
-import co.carmen.superapptwo.ui.fragment.ProductFragment;
-
-
-public class ActivityPersonal extends AppCompatActivity {
+/**
+ * Created by Alfredo on 05/06/2015.
+ */
+public class ActivityLista extends AppCompatActivity {
 
     private String categoryId = "";
     private String producsURL = "http://profecoapi.tk/categories/%s/?format=json";
@@ -29,10 +22,10 @@ public class ActivityPersonal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_activity_personal);
+        setContentView(R.layout.activity_lista);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.personal_fragment, new PlaceholderFragment())
+                    .add(R.id.container1, new PlaceholderFragment())
                     .commit();
         }
         /*categoryId = getIntent().getStringExtra("categoryId");
@@ -41,16 +34,6 @@ public class ActivityPersonal extends AppCompatActivity {
         Log.wtf("String url:", producsURL);*/
 
         Fresco.initialize(this);
-
-    }
-    public void  ActivityProduct3(View view){
-        Button button = (Button) findViewById(R.id.buttonP);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(ActivityPersonal.this, ActivityLista.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
@@ -86,7 +69,7 @@ public class ActivityPersonal extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_activity_personal, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_lista, container, false);
             return rootView;
         }
 

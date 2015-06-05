@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import co.carmen.superapptwo.ActivityPersonal;
 import co.carmen.superapptwo.ActivityProduct;
 import co.carmen.superapptwo.R;
 import co.carmen.superapptwo.model.Product;
@@ -25,10 +26,11 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
     private String product_photo ;
     private Context context;
 
-    public ProductAdapter(ArrayList<Product> products,String product_photo, Context context) {
+    public ProductAdapter(ArrayList<Product> products,String product_photo,Context context) {
         this.product_photo = product_photo;
         this.products = products;
         this.context = context;
+
     }
 
     @Override
@@ -44,17 +46,11 @@ public class ProductAdapter  extends RecyclerView.Adapter<ProductAdapter.Product
     public void onBindViewHolder (ProductViewHolder productViewHolder,final int i){
         productViewHolder.product_name.setText(String.valueOf(products.get(i).getProductName()));
         productViewHolder.product_photo.setImageURI(Uri.parse(product_photo));
-        productViewHolder.product_photo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.wtf("Click::", products.get(i).getProductid());
-            }
-        });
         productViewHolder.product_but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.wtf("Click::", products.get(i).getProductid());
-                Intent intent = new Intent(context, ActivityProduct.class);
+                Intent intent = new Intent(context, ActivityPersonal.class);
                 intent.putExtra("categoryId", products.get(i).getProductid());
                 context.startActivity(intent);
             }

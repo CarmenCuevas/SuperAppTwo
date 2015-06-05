@@ -79,7 +79,7 @@ public class ProductFragment extends Fragment {
                 Log.wtf("STRING-REQUEST::", String.valueOf(jsonArray));
                 if (jsonArray != null){
                     ArrayList<Product> products = JsonFirstParser.parserCreateProduct(jsonArray);
-                    adapter = new ProductAdapter(products,product_photo);
+                    adapter = new ProductAdapter(products,product_photo,getActivity());
                     recycler_product.setAdapter(adapter);
                 }
 

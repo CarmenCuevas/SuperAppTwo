@@ -45,7 +45,7 @@
         <Button
             android:layout_width="55dp"
             android:layout_height="55dp"
-            android:text="A"
+
             android:id="@+id/buttonA"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"

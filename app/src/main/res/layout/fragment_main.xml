@@ -26,7 +26,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SuperApp"
+        android:text="PricePocket"
         android:id="@+id/textView"
         android:textSize="50sp"
         android:layout_alignParentTop="true"

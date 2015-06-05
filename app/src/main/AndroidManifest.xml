@@ -30,11 +30,11 @@
 
         <activity
             android:name=".ActivityProduct"
-            android:label="@string/title_activity_activity_product" >
+            android:label="Productos" >
         </activity>
         <activity
             android:name=".ActivityCategory"
-            android:label="@string/title_activity_activity_category" >
+            android:label="Categorias" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -44,7 +44,7 @@
         </activity>
         <activity
             android:name=".ActivityPersonal"
-            android:label="@string/title_activity_activity_personal" >
+            android:label="Precios" >
         </activity>
 
         <activity
